@@ -1,0 +1,20 @@
+runtime: nodejs
+env: flex
+automatic_scaling:
+  min_num_instances: 1 # default is 2
+  max_num_instances: 1
+#  cool_down_period_sec: 120 # default value
+#  cpu_utilization:
+#    target_utilization: 0.5
+
+env_variables:
+  GULP_INSERT: "HERE"
+
+resources:
+# cpu: .1
+ memory_gb: 1
+# disk_size_gb: 10
+
+beta_settings:
+  # Connection to the database
+  cloud_sql_instances: matchmyroute-backend:us-east1:matchmyroute-database
