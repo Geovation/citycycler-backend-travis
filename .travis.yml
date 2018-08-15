@@ -29,4 +29,5 @@ deploy:
   provider: gae
   keyfile: ./conf/key-file.json
   project: matchmyroute-backend
-  config: build/app.yaml
+  config: ./build/app.yaml
+  skip_cleanup: true
