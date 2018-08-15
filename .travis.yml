@@ -5,4 +5,4 @@ cache:
     directories:
         - node_modules
 before_install:
-    - openssl aes-256-cbc -K $encrypted_bcb0da9ada9b_key -iv $encrypted_bcb0da9ada9b_iv -in matchmyroute-backend-firebase-adminsdk-jm5jb-e33eab9419.json.enc -out matchmyroute-backend-firebase-adminsdk-jm5jb-e33eab9419.json -d
+    - openssl aes-256-cbc -K $encrypted_bcb0da9ada9b_key -iv $encrypted_bcb0da9ada9b_iv -in ./conf/matchmyroute-backend-firebase-adminsdk-jm5jb-e33eab9419.json.enc -out ./conf/matchmyroute-backend-firebase-adminsdk-jm5jb-e33eab9419.json -d
