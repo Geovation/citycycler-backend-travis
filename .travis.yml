@@ -21,3 +21,5 @@ before_script:
 - psql -U postgres -c "create extension postgis"
 - psql -c "CREATE USER testuser WITH PASSWORD 'test' SUPERUSER;"
 - psql -c 'CREATE DATABASE "matchMyRouteTest" WITH OWNER testuser;'
+script:
+- gulp build
