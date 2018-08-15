@@ -29,3 +29,4 @@ deploy:
   provider: gae
   keyfile: ./conf/key-file.json
   project: matchmyroute-backend
+  config: build/app.yaml
