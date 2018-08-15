@@ -9,6 +9,8 @@ env:
   global:
     secure: lUO4xwRNZTbTfMdobBYND9vvgrJNKyTAFsfAzuNoyb6gsJmbE+nK1nWXJwRfZv7zkf8FNEriSlTUhvHaXdlAoxnUJgZmQaeQZZUXPvoGLtSJReppI3Lk8BYRdvld+iAmnpgEAmw1AiVQv9X1U0T6nR4Tz6N9N8Qun3wSCqxmm5EdPSvZ8PukfJ8wXK4SPRRHYtbfbr8ys34SUBzgo0/PUblFpWZKeYhV40L6nhwZ1C1iczMrGvl6i8wEoPxQLLp9y4bcH1oNMYROCxPEg/i1BuDg8m0w/NHUY0AgIBZG3WpBgCZPPPn1wqvrdtYU5qikrJjLmSFZs+c9dvpxZOcLxGiWi4reqQ/ECy6GU/cx1SD1XIYKq2wle8cj2ZR+nAo3aLJDxs38c1QInhX+AkR8OV/xRcdKaHEEXHo/asjg5LgDhtJRUzDkePrlIqhOxVjIlyMkjOHtrACtPlFK1o/Stat6th2+1nhCvClx86ndRA8lvhHcDsvYY9bEWQKTPFzMNZzH/gAzVfqJSJEgZxAyHF/5cBEofoMuVPSyL/azaYJ1AwEdO6P94o7Y5mYaAnTFxHlcF/+bwMWsnwTsZyLhAcVqx7aKn40M+LP478lwdPge83+2ww3bGJMxa0ZhmXmy01rC5oGa/p5WE0sNkC6/xs2QEnruagJvZUXBPnFNS+c=
 before_install:
+- openssl aes-256-cbc -K $encrypted_6b1d22c161fd_key -iv $encrypted_6b1d22c161fd_iv
+  -in ./conf/key-file.json.enc -out ./conf/key-file.json -d
 - openssl aes-256-cbc -K $encrypted_bcb0da9ada9b_key -iv $encrypted_bcb0da9ada9b_iv
   -in ./conf/matchmyroute-backend-firebase-adminsdk-jm5jb-e33eab9419.json.enc -out
   ./conf/matchmyroute-backend-firebase-adminsdk-jm5jb-e33eab9419.json -d
@@ -23,3 +25,7 @@ before_script:
 - psql -c 'CREATE DATABASE "matchMyRouteTest" WITH OWNER testuser;'
 script:
 - gulp build
+deploy:
+  provider: gae
+  keyfile: ./conf/key-file.json
+  project: matchmyroute-backend
