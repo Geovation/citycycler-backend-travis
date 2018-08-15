@@ -1,8 +1,8 @@
 language: node_js
 node_js:
-  - "6"
+    - "6"
 cache:
-  directories:
-    - node_modules
+    directories:
+        - node_modules
 before_install:
-  - echo "test echo"
+    - openssl aes-256-cbc -K $encrypted_6b1d22c161fd_key -iv $encrypted_6b1d22c161fd_iv -in conf/matchmyroute-backend-firebase-adminsdk-jm5jb-e33eab9419.json.enc -out conf/credentials/matchmyroute-backend-firebase-adminsdk-jm5jb-e33eab9419.json -d
