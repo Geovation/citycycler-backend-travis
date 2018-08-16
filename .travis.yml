@@ -11,12 +11,12 @@ env:
   - secure: TjDCr5LllFnF2Pq+T7ACwogpMuGpYjOiFM/SEL3ParVhDA2R2MIGTsLZjg/qzo3itFP0A/3aewn/dbapPaXnDkGACc7WAU569ux+ps1QwXF2Adt2K5ERFgVZVwXNp7XmoCGjli79kxVYje5mVdyBuRzeBt2UOTm/TATGIBY++sHk9I+1E1HLiro6LeT8NwMbljkoiXfCIu4q4c2r6CtGOUTyAgB3fQh1se3PgT6MbOm7jeVJpezeoL7swbd/W958Mv5Akw0dCmIoBNHunOISCL5K3zf6a4qnTLlQjJcyP7+gDIdMj3QfX9R8+iRFIfJJ9EdBhQl1VvP+Jn3f5W5T8133Muk2wf1GnQ1a+00v5hUhQsAyDXU+dv05RdK2KsS7+ik8xwcd1XyLjK2hj4se35cli8Tu5nmYpLe93dAYydb95xSOJrDlXzh2CsEEbn1c0a9nXX0CCmB2PWn5wRSJhDZdinyzSuXHwLdpqZDEwV2dXbb8Ynv+cXnl1lAbi7B+JQMiOBR0wQm0voxu+0QamazPr5QGcFhPbfm+nBhoq4b1bnkGb7Q/bJ70YJoAjj7evMVgLVaQ3he4wV7mPdXtmKHyoRnSHAW8k3Kz+uzZrlJVibSqDpxjGMLnzMXGJJaBgaXKeuexH0SOircsMksz9g+Rvyn25joelizPGYpdZn4=
 before_install:
 - openssl aes-256-cbc -K $encrypted_6b1d22c161fd_key -iv $encrypted_6b1d22c161fd_iv
+  -in ./conf/storage-keyfile.json.enc -out ./conf/storage-keyfile.json -d
+- openssl aes-256-cbc -K $encrypted_6b1d22c161fd_key -iv $encrypted_6b1d22c161fd_iv
   -in ./conf/key-file.json.enc -out ./conf/key-file.json -d
 - openssl aes-256-cbc -K $encrypted_bcb0da9ada9b_key -iv $encrypted_bcb0da9ada9b_iv
   -in ./conf/matchmyroute-backend-firebase-adminsdk-jm5jb-e33eab9419.json.enc -out
   ./conf/matchmyroute-backend-firebase-adminsdk-jm5jb-e33eab9419.json -d
-- openssl aes-256-cbc -K $encrypted_6b1d22c161fd_key -iv $encrypted_6b1d22c161fd_iv
-  -in ./conf/storage-keyfile.json.enc -out ./conf/storage-keyfile.json -d
 addons:
   postgresql: '9.6'
   apt:
